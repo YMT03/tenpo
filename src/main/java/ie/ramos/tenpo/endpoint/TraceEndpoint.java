@@ -18,7 +18,7 @@ public class TraceEndpoint {
     private final TraceService traceService;
     private final PageMapper pageMapper;
 
-    @GetMapping("/api/traces")
+    @GetMapping("/internal/traces")
     public PageDTO<Trace> get(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "50") int size) {
         return pageMapper.mapToPageDTO(traceService.findAll(page, size));
     }

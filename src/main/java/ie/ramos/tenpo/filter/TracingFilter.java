@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 import static java.util.Arrays.copyOf;
-import static org.apache.commons.lang3.StringUtils.deleteWhitespace;
+import static org.apache.commons.lang3.StringUtils.normalizeSpace;
 
 @Component
 @Order(2)
@@ -70,9 +70,8 @@ public class TracingFilter extends OncePerRequestFilter {
         return getStringFromBytes(requestWrapper.getContentAsByteArray());
     }
 
-
     private String getStringFromBytes(byte[] bytes) {
-        return deleteWhitespace(new String(copyOf(bytes, bytes.length)));
+        return normalizeSpace(new String(copyOf(bytes, bytes.length))).trim();
     }
 
 }

@@ -2,6 +2,8 @@ package ie.ramos.tenpo.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import ie.ramos.tenpo.filter.TracingFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,5 +23,13 @@ public class AppConfig {
         objectMapper.registerModule(new JavaTimeModule());
 
         return objectMapper;
+    }
+
+    @Bean
+    public FilterRegistrationBean<TracingFilter> tracingFilterRegistration(TracingFilter tracingFilter) {
+        FilterRegistrationBean<TracingFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(tracingFilter);
+        registrationBean.addUrlPatterns("/api/*");
+        return registrationBean;
     }
 }
