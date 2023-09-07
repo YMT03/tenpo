@@ -23,14 +23,14 @@ public class AsyncTracerTest {
 
     @Test
     public void testSave_OK() {
-        String uri = "/test";
-        String method = "GET";
-        String headers = "some-header-values";
-        String request = "{some-request-json}";
-        String response = "{some-response-json}";
+        var uri = "/test";
+        var method = "GET";
+        var headers = "some-header-values";
+        var request = "{some-request-json}";
+        var response = "{some-response-json}";
         int httpStatus = HttpStatus.OK.value();
 
-        Trace expectedTrace = buildTrace(uri, method, headers, request, response, httpStatus);
+        var expectedTrace = buildTrace(uri, method, headers, request, response, httpStatus);
 
         asyncTracer.trace(uri, method, headers, request, response, httpStatus);
 

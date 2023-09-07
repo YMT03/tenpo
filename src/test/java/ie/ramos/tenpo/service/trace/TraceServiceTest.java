@@ -46,18 +46,18 @@ public class TraceServiceTest {
         int pageNumber = 0;
         int pageSize = 10;
 
-        List<Trace> traceList = asList(
+        var traceList = asList(
                 buildTrace(randomUUID()),
                 buildTrace(randomUUID())
         );
 
-        PageImpl<Trace> transactionsPage = new PageImpl<>(traceList);
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        var transactionsPage = new PageImpl<>(traceList);
+        var pageable = PageRequest.of(pageNumber, pageSize);
 
         when(repository.findAll(pageable))
                 .thenReturn(transactionsPage);
 
-        Page<Trace> retrieved = service.findAll(0, 10);
+        var retrieved = service.findAll(0, 10);
 
         assertThat(retrieved).isEqualTo(transactionsPage);
 

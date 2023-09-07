@@ -25,14 +25,14 @@ public class PercentageServiceTest {
 
     @Test
     public void testGet_OK() {
-        BigDecimal numberOne = new BigDecimal("123.33");
-        BigDecimal numberTwo = new BigDecimal("5.5555");
-        BigDecimal expected = new BigDecimal("1.1");
+        var numberOne = new BigDecimal("123.33");
+        var numberTwo = new BigDecimal("5.5555");
+        var expected = new BigDecimal("1.1");
 
         when(percentageRestService.get(numberOne, numberTwo))
                 .thenReturn(expected);
 
-        BigDecimal retrieved = service.get(numberOne, numberTwo);
+        var retrieved = service.get(numberOne, numberTwo);
 
         assertThat(retrieved).isEqualTo(expected);
 

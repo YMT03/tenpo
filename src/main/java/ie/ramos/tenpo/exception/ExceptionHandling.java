@@ -60,11 +60,7 @@ public class ExceptionHandling {
     }
 
     private ApiException getApiException(Exception e) {
-        if (e instanceof ApiException ae)
-            return ae;
-        if (e.getCause() instanceof ApiException ae)
-            return ae;
-        return exceptionFactory.buildInternalServerError(e);
+        return e.getCause() instanceof ApiException ae? ae : exceptionFactory.buildInternalServerError(e);
     }
 
 }
