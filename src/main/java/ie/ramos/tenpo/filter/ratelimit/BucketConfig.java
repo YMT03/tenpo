@@ -1,4 +1,4 @@
-package ie.ramos.tenpo.filter;
+package ie.ramos.tenpo.filter.ratelimit;
 
 import io.github.bucket4j.Bucket;
 import org.springframework.beans.factory.annotation.Value;

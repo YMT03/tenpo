@@ -1,4 +1,4 @@
-package ie.ramos.tenpo.filter;
+package ie.ramos.tenpo.filter.ratelimit;
 
 import ie.ramos.tenpo.exception.domain.TooManyRequestException;
 import io.github.bucket4j.Bucket;
