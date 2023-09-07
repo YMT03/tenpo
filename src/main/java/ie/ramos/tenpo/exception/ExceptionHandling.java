@@ -34,7 +34,7 @@ public class ExceptionHandling {
 
     @ExceptionHandler(BindException.class)
     public ResponseEntity<ErrorDTO> handle(BindException e) {
-        String description = String.format("Error with Object %s. %s", e.getObjectName(), getCollapsedBindingErrors(e));
+        var description = String.format("Error with Object %s. %s", e.getObjectName(), getCollapsedBindingErrors(e));
         return handleResponse(exceptionFactory.buildBadRequest(description, e));
     }
 

@@ -7,13 +7,17 @@ import org.springframework.context.annotation.Configuration;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 import static com.fasterxml.jackson.databind.PropertyNamingStrategies.SNAKE_CASE;
+import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS;
+
 @Configuration
 public class AppConfig {
+
     @Bean
     public ObjectMapper objectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
+        var objectMapper = new ObjectMapper();
         objectMapper.setPropertyNamingStrategy(SNAKE_CASE);
         objectMapper.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.disable(WRITE_DATES_AS_TIMESTAMPS);
         objectMapper.registerModule(new JavaTimeModule());
 
         return objectMapper;

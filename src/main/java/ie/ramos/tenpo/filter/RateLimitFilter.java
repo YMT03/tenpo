@@ -15,6 +15,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @AllArgsConstructor
 @Component
 @Order(1)
@@ -31,6 +33,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } catch (TooManyRequestException e) {
             response.getWriter().write(jsonWrapper.toJsonString(errorMapper.mapToDTO(e)));
+            response.setContentType(APPLICATION_JSON_VALUE);
             response.setStatus(e.getHttpStatus().value());
         }
     }
