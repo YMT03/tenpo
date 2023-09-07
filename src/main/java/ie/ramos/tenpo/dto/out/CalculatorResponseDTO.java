@@ -1,4 +1,4 @@
-package ie.ramos.tenpo.dto;
+package ie.ramos.tenpo.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

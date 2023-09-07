@@ -1,8 +1,8 @@
 package ie.ramos.tenpo.endpoint;
 
 
-import ie.ramos.tenpo.dto.CalculatorRequestDTO;
-import ie.ramos.tenpo.dto.CalculatorResponseDTO;
+import ie.ramos.tenpo.dto.in.CalculatorRequestDTO;
+import ie.ramos.tenpo.dto.out.CalculatorResponseDTO;
 import ie.ramos.tenpo.service.CalculatorService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
