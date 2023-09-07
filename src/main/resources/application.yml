@@ -9,3 +9,8 @@ spring:
     resources.add-mappings: false
 
 server.error.whitelabel.enabled: false
+
+api:
+  rest:
+  rate-limit:
+    max-rpm: 3
