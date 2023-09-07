@@ -4,6 +4,7 @@ package ie.ramos.tenpo.exception;
 import ie.ramos.tenpo.exception.domain.ApiException;
 import ie.ramos.tenpo.exception.domain.BadRequestException;
 import ie.ramos.tenpo.exception.domain.NotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
@@ -30,6 +31,10 @@ public class ExceptionFactory {
 
     public ApiException buildInternalServerError(Exception e) {
         return new ApiException(INTERNAL_SERVER_ERROR.name().toLowerCase(), "An error occurred", e.getMessage(), INTERNAL_SERVER_ERROR, e);
+    }
+
+    public ApiException buildApiException(HttpStatus httpStatus, String description, Exception cause) {
+        return new ApiException(httpStatus,description, cause);
     }
 
 }

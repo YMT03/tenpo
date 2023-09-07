@@ -1,8 +1,7 @@
 package ie.ramos.tenpo.service;
 
 
-import ie.ramos.tenpo.rest.PercentageRestService;
-import org.assertj.core.api.Assertions;
+import ie.ramos.tenpo.rest.percentage.PercentageRestService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

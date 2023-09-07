@@ -1,6 +1,6 @@
 package ie.ramos.tenpo.service;
 
-import ie.ramos.tenpo.rest.PercentageRestService;
+import ie.ramos.tenpo.rest.percentage.PercentageRestService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

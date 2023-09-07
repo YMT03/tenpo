@@ -15,5 +15,7 @@ server.error.whitelabel.enabled: false
 
 api:
   rest:
+    connection-timeout: 100ms
+    read-timeout: 100ms
   rate-limit:
-    max-rpm: 10
+    max-rpm: 5
