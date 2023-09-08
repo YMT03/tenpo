@@ -14,8 +14,8 @@ services:
       POSTGRES_DB: db
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pw
-  tu-app:
-    image: app:latest
+  app:
+    image: ymt03/tenpo:latest
     container_name: app
     ports:
       - "8080:8080"
