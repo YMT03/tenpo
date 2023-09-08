@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "5f5c8aab-c827-4360-bb26-76d3458a1594",
+		"name": "Tenpo Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calculator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number_one\": 5,\r\n    \"number_two\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/calculator",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"calculator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traces",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "uui",
+						"value": "131132132312",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number_one\": 5,\r\n    \"number_two\": 5   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/internal/traces",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"internal",
+						"traces"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

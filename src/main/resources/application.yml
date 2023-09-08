@@ -23,6 +23,8 @@ api:
   rest:
     connection-timeout: 100ms
     read-timeout: 100ms
+    percentage-mock:
+      fail-probability: 0.5
   cache:
     ttl: 30m
   rate-limit:
