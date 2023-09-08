@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static ie.ramos.tenpo.config.AppConfig.DEV_PROFILE;
+import static ie.ramos.tenpo.util.Constant.DEV_PROFILE;
 
 
 @Service

@@ -13,14 +13,15 @@ public class AsyncTracer {
     private final TraceService traceService;
 
     @Async
-    public void trace(String uri, String method, String headers, String request, String response, int httpStatus) {
-        traceService.save(buildTrace(uri, method, headers, request, response, httpStatus));
+    public void trace(String uri, String method, String queryString, String headers, String request, String response, int httpStatus) {
+        traceService.save(buildTrace(uri, method, queryString, headers, request, response, httpStatus));
     }
 
-    private Trace buildTrace(String uri, String method, String headers, String request, String response, int httpStatus) {
+    private Trace buildTrace(String uri, String method, String queryString, String headers, String request, String response, int httpStatus) {
         return Trace.builder()
                 .uri(uri)
                 .method(method)
+                .queryString(queryString)
                 .headers(headers)
                 .request(request)
                 .response(response)

@@ -24,7 +24,8 @@ public class Trace {
     private UUID id;
     private String method;
     private String uri;
-    @Column(length = 2000)
+    private String queryString;
+    @Column(length = 2500)
     private String headers;
     @Column(length = 5000)
     private String request;

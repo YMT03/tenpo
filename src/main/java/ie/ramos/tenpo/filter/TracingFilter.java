@@ -41,6 +41,7 @@ public class TracingFilter extends OncePerRequestFilter {
         asyncTracer.trace(
                 requestWrapper.getRequestURI(),
                 requestWrapper.getMethod(),
+                requestWrapper.getQueryString(),
                 getHeaders(requestWrapper),
                 getRequestString(requestWrapper),
                 getResponseString(responseWrapper),

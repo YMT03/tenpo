@@ -1,5 +1,10 @@
 version: '3'
 services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
   postgres:
     image: postgres:latest
     container_name: postgres
@@ -9,3 +14,11 @@ services:
       POSTGRES_DB: db
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pw
+  tu-app:
+    image: app:latest
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis

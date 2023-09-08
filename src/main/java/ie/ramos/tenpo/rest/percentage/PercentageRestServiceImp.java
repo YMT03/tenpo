@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-import static ie.ramos.tenpo.config.AppConfig.PROD_PROFILE;
+import static ie.ramos.tenpo.util.Constant.PROD_PROFILE;
 
 @Service
 @AllArgsConstructor

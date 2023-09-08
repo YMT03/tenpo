@@ -40,6 +40,8 @@ public class TracingFilterTest {
                 .thenReturn("/api/uri");
         when(request.getMethod())
                 .thenReturn("GET");
+        when(request.getQueryString())
+                .thenReturn("query=string&quero=strong");
         when(request.getHeaderNames())
                 .thenReturn(enumeration(asList("header1", "header2")));
         when(request.getHeader("header1"))
@@ -58,6 +60,7 @@ public class TracingFilterTest {
         verify(asyncTracer).trace(
                 "/api/uri",
                 "GET",
+                "query=string&quero=strong",
                 "header1:value1;header2:value2;",
                 "{ \"name\": \"value\" }",
                 "{ \"id\":\"bad_request\", \"title\":\"Bad Request\",\"description\":\"bad request\",\"http_status\":400,\"date\":\"2023-09-07T15:57:08.12366-03:00\" }",
@@ -67,6 +70,7 @@ public class TracingFilterTest {
         verify(response).copyBodyToResponse();
         verify(request).getRequestURI();
         verify(request).getMethod();
+        verify(request).getQueryString();
         verify(request).getHeaderNames();
         verify(request).getHeader("header1");
         verify(request).getHeader("header2");

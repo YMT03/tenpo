@@ -25,23 +25,25 @@ public class AsyncTracerTest {
     public void testSave_OK() {
         var uri = "/test";
         var method = "GET";
+        var queryString = "someQuery=String";
         var headers = "some-header-values";
         var request = "{some-request-json}";
         var response = "{some-response-json}";
         int httpStatus = HttpStatus.OK.value();
 
-        var expectedTrace = buildTrace(uri, method, headers, request, response, httpStatus);
+        var expectedTrace = buildTrace(uri, method, queryString, headers, request, response, httpStatus);
 
-        asyncTracer.trace(uri, method, headers, request, response, httpStatus);
+        asyncTracer.trace(uri, method, queryString, headers, request, response, httpStatus);
 
         verify(traceService).save(expectedTrace);
     }
 
 
-    private Trace buildTrace(String uri, String method, String headers, String request, String response, int httpStatus) {
+    private Trace buildTrace(String uri, String method, String queryString, String headers, String request, String response, int httpStatus) {
         return Trace.builder()
                 .uri(uri)
                 .method(method)
+                .queryString(queryString)
                 .headers(headers)
                 .request(request)
                 .response(response)
